@@ -51,7 +51,7 @@
 | Tecnologia     | Descrição                                                     | URL |
 |----------------|---------------------------------------------------------------|------------|
 | ***Java Doc*** | Utilizado para consultar a documentação Java.                 | [Link](https://docs.oracle.com/en/java/) |
-| ***JPA Doc***  | Utilizado para consultar a documentação de JPA.               | [Link](https://docs.oracle.com/javaee/7/api/javax/persistence/package-summary.html) |
+| ***JPA Doc***  | Utilizado para consultar a documentação de JPA.               | [Link](https://github.com/javaee/jpa-spec) |
 | ***Exemplos*** | Exemplos criados durante o estudo em Java de JPA + Hibernate. | [Link](./docs/pages/Examples.md) |
 
 </br>

@@ -1,0 +1,4 @@
+Referencias:
+
+- https://www.cod3r.com.br/courses/java-2020-completo
+- https://www.devmedia.com.br/jpa-e-hibernate-acessando-dados-em-aplicacoes-java/32711#:~:text=Diferen%C3%A7a%20Hibernate%20e%20JPA,interface%20comum%20para%20frameworks%20ORM.

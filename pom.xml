@@ -68,8 +68,8 @@
         <version>9.8.1</version>
         <configuration>
           <url>jdbc:postgresql://localhost:5432/GerenciadorDeUsuarios</url>
-          <user>${DB_USERNAME}</user>
-          <password>${DB_PASSWORD}</password>
+          <user>postgres</user>
+          <password>postgres</password>
           <locations>
             <location>classpath:db/migration</location>
           </locations>

@@ -6,12 +6,14 @@ import java.util.List;
 
 @Table(name = "TB_USERS", schema = "PUBLIC")
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_users_seq")
+    @SequenceGenerator(name = "tb_users_seq", sequenceName = "TB_USERS_SEQ", allocationSize = 1)
     private Long id;
 
     @Column(name = "USERNAME")

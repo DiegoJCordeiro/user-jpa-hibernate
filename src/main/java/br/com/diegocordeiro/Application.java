@@ -1,18 +1,12 @@
 package br.com.diegocordeiro;
 
-import br.com.diegocordeiro.business.Business;
-import br.com.diegocordeiro.business.implementation.PutAddressBusiness;
-import br.com.diegocordeiro.business.implementation.PutRoleBusiness;
-import br.com.diegocordeiro.business.implementation.PutUserBusiness;
 import br.com.diegocordeiro.entrypoint.EntryPoint;
 import br.com.diegocordeiro.entrypoint.implementation.AddressEntryPoint;
 import br.com.diegocordeiro.entrypoint.implementation.RoleEntryPoint;
 import br.com.diegocordeiro.entrypoint.implementation.UserEntryPoint;
-import br.com.diegocordeiro.model.Address;
-import br.com.diegocordeiro.model.Level;
-import br.com.diegocordeiro.model.Role;
-import br.com.diegocordeiro.model.User;
+import br.com.diegocordeiro.model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application
@@ -44,11 +38,11 @@ public class Application
                 "Brazil",
                 Boolean.FALSE);
 
-        EntryPoint<Address> addressEntryPoint = new AddressEntryPoint();
+        EntryPoint<Address> addressEntryPoint1 = new AddressEntryPoint();
 
-        addressEntryPoint.put(addressOne);
-        addressEntryPoint.put(addressTwo);
-        addressEntryPoint.put(addressThree);
+        addressEntryPoint1.put(addressOne);
+        addressEntryPoint1.put(addressTwo);
+        addressEntryPoint1.put(addressThree);
 
         Role roleReader = new Role(null, "READER",
                 "Role to Reader.",
@@ -68,8 +62,24 @@ public class Application
         roleEntryPoint.put(roleWriter);
         roleEntryPoint.put(roleAdministrator);
 
-        User user = new User("Velocity_T108",
-                "Velocity Treinamentos",
+        JuridicUser user1 = new JuridicUser("Velocity_T108",
+                "Velocity Treinamentos 1",
+                "velocity.treinamentos@gmail.com",
+                1,
+                new ArrayList<>(),
+                roleAdministrator,
+                "123456789", "12.123.123.1231231");
+
+        PersonalUser user2 = new PersonalUser("Velocity_T108",
+                "Velocity Treinamentos 2",
+                "velocity.treinamentos@gmail.com",
+                1,
+                new ArrayList<>(),
+                roleAdministrator,
+                "123456789", "12312312312");
+
+        User user3 = new User("Velocity_T108",
+                "Velocity Treinamentos 3",
                 "velocity.treinamentos@gmail.com",
                 1,
                 List.of(addressOne, addressTwo, addressThree),
@@ -77,6 +87,13 @@ public class Application
                 "123456789");
 
         EntryPoint<User> userEntryPoint = new UserEntryPoint();
-        userEntryPoint.put(user);
+        userEntryPoint.put(user1);
+        userEntryPoint.put(user2);
+        userEntryPoint.put(user3);
+
+        AddressEntryPoint addressEntryPoint2 = new AddressEntryPoint();
+        List<AddressByUser> addressesByUser = addressEntryPoint2.findBy(user3.getId());
+
+        addressesByUser.forEach(System.out::println);
     }
 }

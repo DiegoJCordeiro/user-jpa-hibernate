@@ -14,8 +14,10 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "STREET")
     private String street;
 
+    @Column(name = "NEIGHBORHOOD")
     private String neighborhood;
 
     @Column(name = "RESIDENCE_NUMBER")
@@ -23,7 +25,6 @@ public class Address implements Serializable {
 
     @Column(name = "CITY")
     private String city;
-
 
     @Column(name = "STATE")
     private String state;

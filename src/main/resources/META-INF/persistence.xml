@@ -8,15 +8,19 @@
     <persistence-unit name="user-jpa-hibernate-POSTGRES">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <mapping-file>META-INF/mapped-queries.xml</mapping-file>
+
         <class>br.com.diegocordeiro.model.User</class>
         <class>br.com.diegocordeiro.model.Address</class>
         <class>br.com.diegocordeiro.model.Role</class>
+        <class>br.com.diegocordeiro.model.PersonalUser</class>
+        <class>br.com.diegocordeiro.model.JuridicUser</class>
 
         <properties>
             <property name="javax.persistence.jdbc.Driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GerenciadorDeUsuarios"/>
-            <property name="javax.persistence.jdbc.user" value="${env.DB_USERNAME}"/>
-            <property name="javax.persistence.jdbc.password" value="${env.DB_PASSWORD}"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="postgres"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="hibernate.show_sql" value="true"/>

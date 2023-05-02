@@ -27,8 +27,8 @@
 
 | Nome                           | Descrição                                | Concluído S/N |
 |--------------------------------|------------------------------------------|---------------|
-| ***Criar Entidades***          | Aprender a criar classes entidades.      | N             |
-| ***Mapear com anotações JPA*** | Aprender a mapear entidades relacionais. | N             |
+| ***Criar Entidades***          | Aprender a criar classes entidades.      | S             |
+| ***Mapear com anotações JPA*** | Aprender a mapear entidades relacionais. | S             |
 
 </br>
 

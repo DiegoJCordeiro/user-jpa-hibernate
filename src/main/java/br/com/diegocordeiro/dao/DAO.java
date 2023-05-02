@@ -5,6 +5,10 @@ import br.com.diegocordeiro.configuration.PersistenceUnit;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
+import java.util.Map;
 
 public abstract class DAO<T> {
 
@@ -76,5 +80,22 @@ public abstract class DAO<T> {
         close(true);
 
         return true;
+    }
+
+    public List<T> find(String queryName, Map<String, Object> parameters) {
+
+        this.open();
+
+        TypedQuery<T> typedQuery = this.manager.createNamedQuery(queryName, this.entity);
+
+        parameters.keySet()
+                .parallelStream()
+                .forEach(key -> typedQuery.setParameter(key, parameters.get(key)));
+
+        List<T> returnFound = typedQuery.getResultList();
+
+        this.close(false);
+
+        return returnFound;
     }
 }
